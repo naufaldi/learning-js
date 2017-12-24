@@ -13,7 +13,6 @@
 
     <script>
         window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        //utk recognition
 
         const recognition = new SpeechRecognition();
         recognition.interimResults = true;
@@ -22,27 +21,24 @@
         let p = document.createElement('p');
         const words = document.querySelector('.words');
         words.appendChild(p);
-        //berikan event
-        recognition.addEventListiner('result', e => {
-            // console.log(e);
-            console.log(e.results);
-            const transcript = Array.from(e.results)
-                .map(result => result[o])
-                .map(result => result.transcript)
-                .join('')
 
-            const poopScript = transcript.replace(/poop |poo |shit| dump/gi, '💩');
+        recognition.addEventListener('result', e => {
+            const transcript = Array.from(e.results)
+                .map(result => result[0])
+                .map(result => result.transcript)
+                .join('');
+
+            const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
             p.textContent = poopScript;
 
-            //supaya text bisa dienter/ paragraph selanjutnya
             if (e.results[0].isFinal) {
                 p = document.createElement('p');
                 words.appendChild(p);
             }
         });
-        //stlah dialnjut paragraf, recognition juga dilanjut
-        recognition.addEventListiner('end', recognition.start);
-        //start recognition
+
+        recognition.addEventListener('end', recognition.start);
+
         recognition.start();
     </script>
 
