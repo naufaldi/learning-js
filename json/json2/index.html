@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON PHP</title>
+</head>
+<script>
+    let obj1 = {
+        user: "joh",
+        age: "22",
+        country: "USA"
+    };
+    let obj2 = {
+        user: "natal",
+        age: "24",
+        country: "Malasyia"
+    };
+    let obj3 = {
+        user: "nathan",
+        age: "12",
+        country: "Padang"
+    };
+    let obj4 = {
+        u1: obj1,
+        u2: obj2,
+        u3: obj3
+    };
+    document.write(obj3.user + " age " + obj3.age + " country " + obj3.country);
+    obj3.country = "italy";
+    document.write("<hr>");
+    document.write(obj3.user + " age " + obj3.age + " country " + obj3.country);
+    document.write("<hr>");
+    document.write(obj4.u2.user);
+    document.write("<hr>");
+    document.write(obj4["u2"]["user"]);
+
+    let meats = ["beef", "break", "babi", "boom"];
+    let fruits = ["a", "b", "c", "d", "f"];
+    const obj5 = {
+        arr1: meats,
+        arr2: fruits
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>
