@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX JSON</title>
+    <script>
+        function ajax_post() {
+            //create XMLHTTP request objek
+            const hr = new XMLHttpRequest();
+            const fn = document.getElementById("firstname").value;
+            const ln = document.getElementById("lastname").value;
+            const vars = "firstname=" + fn + "&lastname=" + ln;
+            hr.open("POST", url, true);
+            //set content type header information for sending url encoded variables in the request
+            hr.setRequestHeader("Content-type", "aplication/x-www-form-urlencoded");
+            //acces on ready state change event for  the XMLHTTPrequest objek
+            hr.onreadystatechange = function() {
+                    if (hr.readyState == 4 && hr.status == 200) {
+                        var return_data = hr.responseText;
+                        document.getElementById("status").innerHTML = return_data;
+                    }
+                }
+                //send data to PHP now and wait for response
+            hr.send(vars);
+            document.getElementById("status").innerHTML = "Processing  . . .";
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
