@@ -1,3 +1,5 @@
+//learning by https://medium.freecodecamp.org/learn-to-create-a-line-chart-using-d3-js-4f43f1ee716b
+
 var api = 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2017-12-31&end=2018-' +
         '04-01';
         var g = svg.append("g")
